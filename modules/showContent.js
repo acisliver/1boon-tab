@@ -1,5 +1,7 @@
 
 export default function (content, list) {
+    //list child node 초기화
+    list.textContent = ''
 
     //로컬에 api 요청을 통해 json파일 load
     fetch(`http://localhost:5000/${content}.json`)
@@ -15,8 +17,8 @@ export default function (content, list) {
             const titleDiv = document.createElement("div")
             titleDiv.appendChild(testNode)
             list.appendChild(titleDiv)
+
         }
     }
-
 
 }

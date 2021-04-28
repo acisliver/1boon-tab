@@ -1,21 +1,18 @@
 import jsonToHtml from "./jsonToHtml.js";
 import getJson from "./getJson.js";
 
-//화면에 json을 랜더링하는 메소드
+//더보기 클릭 시 게시글 추가 랜더링 메소드
 //content: 어떤 json을 가져올지 결정
 //list: html을 추가할 dom요소
 export default async function (content, list) {
-    //list child node 초기화
-    list.textContent = ''
-
     //json을 불러옴
     const json = await getJson(content)
 
-    //표시될 게시물의 개수
-    const articleNum = 10
+    //더보기의 하위 노드개수와 json의 개수를 비교해 더보기가 이미 되었는지 확인
+    if(list.childElementCount === json.length) return
 
     //json을 html로
-    for (let i = 0; i < articleNum; i++) {
+    for (let i = 10; i < json.length; i++) {
         jsonToHtml(i, json);
     }
 }

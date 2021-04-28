@@ -5,8 +5,11 @@ import getJson from "./getJson.js"
 //content: 어떤 json을 가져올지 결정
 //list: html을 추가할 dom요소
 export default async function (content, list) {
+
     //list child node 초기화
-    list.textContent = ''
+    list.innerHTML = '<div class="text-center">\n' +
+        '          <span class="glyphicon glyphicon-refresh"></span> 로딩중\n' +
+        '        </div>'
 
     //json을 불러옴
     const json = await getJson(content)
@@ -15,7 +18,15 @@ export default async function (content, list) {
     const articleNum = 10
 
     //json을 html로
-    for (let i = 0; i < articleNum; i++) {
-        jsonToHtml(i, json)
-    }
+    //1초 후 실행
+    setTimeout(function (){
+        //로딩 아이콘을 안보이게함
+        const $load = document.querySelector('.text-center')
+        $load.style.display = "none"
+        //게시물 표시
+        for (let i = 0; i < articleNum; i++) {
+            list.appendChild(jsonToHtml(i, json))
+        }
+    }, 1000)
+
 }

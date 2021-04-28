@@ -21,12 +21,7 @@ export default function (num, json) {
     //카드에 json 내용 추가
     card.innerHTML = htmlString
 
-    //list에 card 추가
-    list.appendChild(card)
-
-    //초기화
-    htmlString = ''
-    
+    return card
     //기사를 감싸줄 카드 생성 메소드
     function makeCard() {
         const card = document.createElement("div")

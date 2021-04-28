@@ -18,27 +18,33 @@ export default function (content, list) {
             const url = json[i].url
             const cp = json[i].cp
 
+            //이미지 태그 추가
             htmlString += `<img src="${img}" style="width: 200px; height: auto">`
+            //제목 추가
             htmlString += `<div class="title">제목: ${title}</div>`
+            //cp 추가
             htmlString += `<div class="cp">cp: ${cp}</div>`
-            // htmlString +- ``
+            //url 링크 추가가
+            htmlString = `<a href=${url}>${htmlString}</a>`
 
             //카드 생성
             let card = makeCard(url)
 
+            //카드에 json 내용 추가
             card.innerHTML = htmlString
+
+            //list에 card 추가
             list.appendChild(card)
 
+            //초기화
             htmlString = ''
-        }
+       }
     }
 
     //기사를 감싸줄 카드 생성 메소드
-    function makeCard(link) {
+    function makeCard() {
         const card = document.createElement("div")
         card.classList.add("card")
-        const aTag = `<a href="${link}"></a>`
-        card.innerHTML = aTag
         return card
     }
 }

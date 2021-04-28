@@ -1,5 +1,5 @@
-import jsonToHtml from "./jsonToHtml.js";
-import getJson from "./getJson.js";
+import jsonToHtml from "./jsonToHtml.js"
+import getJson from "./getJson.js"
 
 //화면에 json을 랜더링하는 메소드
 //content: 어떤 json을 가져올지 결정
@@ -16,6 +16,6 @@ export default async function (content, list) {
 
     //json을 html로
     for (let i = 0; i < articleNum; i++) {
-        jsonToHtml(i, json);
+        jsonToHtml(i, json)
     }
 }

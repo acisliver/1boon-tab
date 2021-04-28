@@ -1,5 +1,5 @@
-import jsonToHtml from "./jsonToHtml.js";
-import getJson from "./getJson.js";
+import jsonToHtml from "./jsonToHtml.js"
+import getJson from "./getJson.js"
 
 //더보기 클릭 시 게시글 추가 랜더링 메소드
 //content: 어떤 json을 가져올지 결정
@@ -15,6 +15,6 @@ export default async function (content, list) {
 
     //10개씩 더 표시
     for (let i = currentArticleNum; i < currentArticleNum + 10; i++) {
-        jsonToHtml(i, json);
+        jsonToHtml(i, json)
     }
 }

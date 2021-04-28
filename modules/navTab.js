@@ -4,9 +4,9 @@ export default function (tabs, tab) {
     const active = "active"
     let tClassList = ""
 
+    //이전 active 삭제
     tabs.forEach(t => {
         tClassList = t.classList
-        //이전 active 삭제
         if(tClassList.contains(active)) tClassList.remove(active)
     })
 
